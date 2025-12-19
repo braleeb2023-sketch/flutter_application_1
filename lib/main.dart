@@ -13,7 +13,7 @@ class RecipeApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(appBarTheme: const AppBarTheme(centerTitle: true)),
-      home: const MyHomePage(title: 'Recipe Calculator'),
+      home: const MyHomePage(title: 'Recipe Detail'),
     );
   }
 }
@@ -81,5 +81,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
- 
  
