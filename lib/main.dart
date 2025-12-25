@@ -1,8 +1,7 @@
+ 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Model/recipe.dart';
 import 'package:flutter_application_1/recipe_detail.dart';
-import 'package:google_fonts/google_fonts.dart';
-
  
 void main() {
   runApp(const RecipeApp());
@@ -15,7 +14,7 @@ class RecipeApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(appBarTheme: const AppBarTheme(centerTitle: true)),
-      home: const MyHomePage(title: 'Recipe Detail'),
+      home: const MyHomePage(title: 'Uniqlo Shop'),
     );
   }
 }
@@ -34,26 +33,24 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(title: Text(widget.title)),
       body: SafeArea(
-        child: Container(
-          child: ListView.builder(
-            itemBuilder: (BuildContext context, int index) {
-              return GestureDetector(
-                onTap: () {
-                  print('You Tapped on ${Recipe.samples[index].imgLabel}');
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return RecipeDetail(recipe: Recipe.samples[index]);
-                      },
-                    ),
-                  );
-                },
-                child: buildRecipeCard(Recipe.samples[index]),
-              );
-            },
-            itemCount: Recipe.samples.length,
-          ),
+        child: ListView.builder(
+          itemBuilder: (BuildContext context, int index) {
+            return GestureDetector(
+              onTap: () {
+                print('You Tapped on ${Recipe.samples[index].imgLabel}');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return RecipeDetail(recipe: Recipe.samples[index]);
+                    },
+                  ),
+                );
+              },
+              child: buildRecipeCard(Recipe.samples[index]),
+            );
+          },
+          itemCount: Recipe.samples.length,
         ),
       ),
     );
@@ -71,9 +68,10 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(height: 14.0),
             Text(
               recipe.imgLabel,
-              style: GoogleFonts.kanit(
+              style: const TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.w500,
+                fontFamily: 'Palatino',
               ),
             ),
           ],
@@ -82,4 +80,5 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+ 
  
